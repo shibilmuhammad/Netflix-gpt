@@ -3,11 +3,9 @@ import React, { useRef, useState } from 'react'
  import { validateForm } from '../utils/validateForm';
  import { createUserWithEmailAndPassword ,signInWithEmailAndPassword, updateProfile } from "firebase/auth";
  import { auth } from '../utils/fireBase';
-import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../utils/userSlice';
 const Login = () => {
-  const navigate = useNavigate()
   const dispatch = useDispatch()
   const[isSignIn,setIsSignIn] = useState(true);
   const email = useRef(null)
@@ -25,7 +23,7 @@ const Login = () => {
     if(!isSignIn){
       createUserWithEmailAndPassword(auth, email.current.value,password.current.value)
       .then((userCredential) => {
-      
+
         const user = userCredential.user;
 
         updateProfile(user, {
@@ -39,7 +37,6 @@ const Login = () => {
           // An error occurred
           // ...
         });
-        navigate('/browse')
         // ...
       })
       .catch((error) => {
@@ -52,7 +49,6 @@ const Login = () => {
       .then((userCredential) => {
         // Signed in 
         const user = userCredential.user;
-        navigate('/browse')
       })
       .catch((error) => {
         const errorCode = error.code;
