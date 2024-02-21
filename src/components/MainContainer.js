@@ -1,11 +1,12 @@
 import { useSelector } from "react-redux"
-import useNowPlayingMovies from "../hooks/useNowPlayingMovies"
-import VideoBackground from "./VideoBackground"
+import useNowPlayingMovies from "../hooks/useNowPlayingMovies copy"
 import VideoTitle from "./VideoTitle"
-
+import usePopularMovies from "../hooks/usePopularMovies"
+import VideoBackground  from "./VideoBackground"
 
 const MainContainer = () => {
     useNowPlayingMovies()
+    usePopularMovies()
     let movies = useSelector((store)=>store.movies.nowPlayingMovies)
     if(!movies) return ;
     const MainMovie = movies[movies.length-1]

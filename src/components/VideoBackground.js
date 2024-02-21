@@ -14,12 +14,6 @@ const VideoBackground = ({ movieId }) => {
     allowFullScreen
     ></iframe>
 
-
-
-
-
-
-
     </div>
   );
 };

@@ -5,6 +5,7 @@ import React, { useRef, useState } from 'react'
  import { auth } from '../utils/fireBase';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../utils/userSlice';
+import { BG_LOGIN } from '../utils/constants';
 const Login = () => {
   const dispatch = useDispatch()
   const[isSignIn,setIsSignIn] = useState(true);
@@ -30,7 +31,7 @@ const Login = () => {
           displayName:userName.current.value
         }).then(() => {
           const {uid,email,displayName} = auth.currentUser;
-          console.log('current user :',auth.currentUser);
+
         
           dispatch(addUser({uid:uid,email:email,displayName:displayName}))
         }).catch((error) => {
@@ -62,7 +63,7 @@ const Login = () => {
     <div className=''>
         <Header />
         <div className='absolute '>
-            <img className='brightness-75' alt='background' src='https://assets.nflxext.com/ffe/siteui/vlv3/c0b69670-89a3-48ca-877f-45ba7a60c16f/2642e08e-4202-490e-8e93-aff04881ee8a/IN-en-20240212-popsignuptwoweeks-perspective_alpha_website_large.jpg'></img>
+            <img className='brightness-75' alt='background' src={BG_LOGIN}></img>
         </div>
        <form onSubmit={(e)=>e.preventDefault()} className=' bg-opacity-80 text-white absolute bg-black w-3/12 my-36 p-12 right-0 left-0 mx-auto rounded-lg'>
          <h1 className='font-bold text-3xl py-4'>{isSignIn ?'Sign In':'Sign Up'}</h1>
