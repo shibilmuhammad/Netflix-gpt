@@ -1,10 +1,12 @@
+import { useSelector } from "react-redux"
 import MovieCard from "./MovieCard"
 
 
+
 const MoviesList = ({title,movies}) => {
-    
+  const {showgptSearch} = useSelector((store)=>store.gpt)
   return (
-    <div className="p-3">
+    <div className={showgptSearch?" p-3":"p-3"} >
         <h1 className="text-2xl font-medium py-4 text-white">{title}</h1>
         <div className="flex overflow-x-auto ">
             <div className="flex space-x-3">
