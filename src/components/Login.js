@@ -17,7 +17,7 @@ const Login = () => {
     setIsSignIn(!isSignIn)
   }
 
-  const FormSubmit = ()=>{
+  const FormSubmit = ()=>{  
     const validationResult = validateForm(email.current.value,password.current.value);
     setValidationError(validationResult)
     if(validationResult) return
@@ -77,8 +77,7 @@ const Login = () => {
          <button onClick={FormSubmit} className='w-full p-3 my-6 bg-red-700 rounded-lg'>{isSignIn ?'Sign In':'Sign Up'} </button>
         
          <p onClick={toggleSignInForm} className='cursor-pointer'>{isSignIn?'New to Netflix ?? Sign Up now!!':'Already a Member?? Sign in now!!'}</p>
-       </form>
-    </div>
+       </form> </div>
   )
 }
 

@@ -9,7 +9,7 @@ const MainContainer = () => {
     usePopularMovies()
     let movies = useSelector((store)=>store.movies.nowPlayingMovies)
     if(!movies) return ;
-    const MainMovie = movies[movies.length-1]
+    const MainMovie = movies[0]
     const {original_title ,overview ,id} =  MainMovie
   return (
     <div>
